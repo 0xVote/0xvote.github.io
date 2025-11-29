@@ -2,25 +2,148 @@
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
-  <title>GoodMe.io · 我的博客</title>
+  <title>goodme.io · oxvote 的个人博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-      max-width: 720px;
-      margin: 80px auto;
-      padding: 0 16px;
-      line-height: 1.7;
-      color: #333;
+    :root {
+      --bg: #ffffff;
+      --text: #222222;
+      --muted: #888888;
+      --link: #0070f3;
+      --border: #eeeeee;
     }
-    h1 { font-size: 32px; font-weight: 600; }
-    p { font-size: 18px; }
-    a { color: #0070f3; text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0 16px 40px;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+    .layout {
+      max-width: 720px;
+      margin: 40px auto;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 32px;
+    }
+    .site-title {
+      font-size: 20px;
+      font-weight: 600;
+    }
+    .site-subtitle {
+      font-size: 14px;
+      color: var(--muted);
+    }
+    nav a {
+      margin-left: 16px;
+      font-size: 14px;
+      text-decoration: none;
+      color: var(--muted);
+    }
+    nav a:hover {
+      color: var(--link);
+    }
+    h1 {
+      font-size: 26px;
+      margin-bottom: 8px;
+    }
+    .post-list {
+      margin: 24px 0;
+      border-top: 1px solid var(--border);
+    }
+    .post-item {
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .post-title {
+      font-size: 18px;
+      margin: 0 0 4px;
+    }
+    .post-title a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .post-title a:hover {
+      color: var(--link);
+    }
+    .post-meta {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .post-excerpt {
+      font-size: 14px;
+      color: #444;
+      margin: 0;
+    }
+    footer {
+      margin-top: 32px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    @media (max-width: 600px) {
+      .layout {
+        margin: 24px auto;
+      }
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+      }
+      nav {
+        margin-top: 8px;
+      }
+    }
   </style>
 </head>
 <body>
-  <h1>欢迎来到 goodme.io</h1>
-  <p>你的个人博客正在成功搭建中。</p >
-  <p>接下来我会帮你搭建 <strong>像 jysperm.me 一样的极简博客系统</strong>。</p >
+  <div class="layout">
+    <header>
+      <div>
+        <div class="site-title">goodme.io</div>
+        <div class="site-subtitle">记录一点有意思的思考与实践</div>
+      </div>
+      <nav>
+        <a href=" ">首页</a >
+        <a href="/about.html">关于</a >
+      </nav>
+    </header>
+
+    <main>
+      <h1>文章</h1>
+      <section class="post-list">
+        <article class="post-item">
+          <h2 class="post-title">
+            <a href="/posts/first-post.html">第一篇文章示例：你好，GoodMe</a >
+          </h2>
+          <div class="post-meta">2025-11-29</div>
+          <p class="post-excerpt">这是你的第一篇示例文章。你可以在这里写下最近在想什么、在做什么、以及你想长期记录的东西。</p >
+        </article>
+
+        <article class="post-item">
+          <h2 class="post-title">
+            <a href="/posts/second-post.html">写博客的一些初衷</a >
+          </h2>
+          <div class="post-meta">2025-11-29</div>
+          <p class="post-excerpt">为什么要搭建一个属于自己的博客，而不是完全依赖公众号、微博、X、朋友圈？这篇文章里可以写写你的答案。</p >
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      © <span id="year"></span> goodme.io · Powered by GitHub Pages
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
